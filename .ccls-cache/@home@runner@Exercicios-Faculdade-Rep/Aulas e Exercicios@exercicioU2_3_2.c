@@ -93,7 +93,3 @@ int main(){
   
   return 0;
 }
-
-//exercicio de calculo de imc
-
-
