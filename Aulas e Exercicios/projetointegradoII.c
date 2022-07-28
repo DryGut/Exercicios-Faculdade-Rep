@@ -126,6 +126,9 @@ void imprimir(struct Dados* li){
 
   assert(li != NULL);
   printf("\n###### DADOS PESSOAIS ######\n");
+  printf("Nome |\t");
+  printf("Endereço |\t");
+  printf("Idade\t");
   struct No* aux = li->inicio;
   for(int i=0; i<li->tamanho; i++){
     printf("%s", aux->info);
