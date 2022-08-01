@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 //constante para definir o tamanho das strings
 #define TAM_S 50
 //cria a estrutura do formulário a ser preenchido
@@ -10,9 +9,9 @@ char name[TAM_S];
 char address[TAM_S];
 char phone[TAM_S];
 };
-//programa inicial
-int main(){
-
+//função para criar o array
+struct cadastro* montar_cad(){
+ 
   //cria um array e define uma quantidade de índices e sua alocação na memória
   struct cadastro *c = (struct cadastro*) malloc(2*sizeof(struct cadastro));
   /* conforme o valor definido para o índice
@@ -31,14 +30,18 @@ int main(){
     fflush(stdin);
     fgets(c[i].phone, TAM_S, stdin);
   }
-  /* imprime de forma organizada os dados
-   * que foram inseridos na chamado do 
-   * do loop for.
-   */
-  printf("\n###### DADOS PESSOAIS ######\n");
+  return c;
+}
+//programa principal
+int main(){
   
-  for(int x=0; x<2; x++){
-    printf("Nome: %sEndereço: %sTelefone: %s\n", c[x].name, c[x].address, c[x].phone);
+  struct cadastro *c = montar_cad();
+  /* imprime de forma organizada os dados
+   * que foram inseridos na função montar_cad() 
+   */
+  printf("\n###### DADOS PESSOAIS ######");
+  for(int i=0; i<2; i++){
+    printf("\nNome: %sEndereço: %sTelefone: %s", c[i].name, c[i].address, c[i].phone);
   }
   return 0;
 }
