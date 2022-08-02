@@ -21,7 +21,7 @@ struct cadastro* montar_cad(){
   /*
    * bloco que irá coletar os dados
    */
-  system("echo \033[93m"); //cor vermelha na tela de inserção de dados
+  system("echo \033[93m"); //define a cor na tela de inserção de dados
   printf("\n****** INSIRA OS DADOS ******\n");
  
   printf("Nome: ");
@@ -49,9 +49,9 @@ int main(){
     printf("\n|               MENU            |");
     printf("\n=================================");
     printf("\n|   Selecione a Opção Desejada  |");
-    printf("\n|    [1] - Para novo Cadastro   |");
-    printf("\n|    [2] - Para inclusão        |");
-    printf("\n|    [3] - Para SAIR            |");
+    printf("\n|   [1] - Para Novo Arquivo     |");
+    printf("\n|   [2] - Para Inclusão         |");
+    printf("\n|   [3] - Para SAIR             |");
     printf("\n=================================");
     printf("\nDigite a Opção Desejada: ");
     scanf("%d", &opcao);
