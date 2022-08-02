@@ -10,14 +10,14 @@ typedef struct cadastro{
 char name[TAM_S];
 char address[TAM_S];
 char phone[TAM_S];
-}c;
+}cad;
 //variável para o arquivo que será utilizado
 FILE *arq;
 //função para criar um vetor que receberá os dados da struct
 struct cadastro* montar_cad(){
  
   //cria o vetor e sua alocação na memória
-  struct cadastro *c = (struct cadastro*) malloc(sizeof(struct cadastro));
+  struct cadastro *cad = (struct cadastro*) malloc(sizeof(struct cadastro));
   /*
    * bloco que irá coletar os dados
    */
@@ -26,20 +26,20 @@ struct cadastro* montar_cad(){
  
   printf("Nome: ");
   fflush(stdin);
-  fgets(c->name, TAM_S, stdin);
+  fgets(cad->name, TAM_S, stdin);
   printf("Endereço: ");
   fflush(stdin);
-  fgets(c->address, TAM_S, stdin);
+  fgets(cad->address, TAM_S, stdin);
   printf("Telefone: ");
   fflush(stdin);
-  fgets(c->phone, TAM_S, stdin);
+  fgets(cad->phone, TAM_S, stdin);
 
-  return c;
+  return cad;
 }
 //programa principal
 int main(){
   //cria a variável da estrutura
-  struct cadastro *c;
+  struct cadastro *cad;
   //variável para as opções
   int opcao;
   
@@ -58,32 +58,32 @@ int main(){
     getchar();//limpa o buffer
     switch(opcao){
       case 1:
-        c = montar_cad(); //chamada da função que coleta os dados
+        cad = montar_cad(); //chamada da função que coleta os dados
         system("clear");//limpa a tela dps da inclusão dos dados
         arq = fopen("cad1.txt", "w");//abre e escreve no arquivo com a flag W
         
         //formatação da primeira inclusão no arquivo
         fprintf(arq, "###### DADOS PESSOAIS ######");
         fprintf(arq, "\nNome: ");
-        fputs(c->name, arq);
+        fputs(cad->name, arq);
         fprintf(arq, "Endereço: ");
-        fputs(c->address, arq);
-        fprintf(arq, "Idade: ");
-        fputs(c->phone, arq);
+        fputs(cad->address, arq);
+        fprintf(arq, "Telefone: ");
+        fputs(cad->phone, arq);
         fclose(arq);
         break;
 
       case 2:
-        c = montar_cad();//chamada da função que coleta os dados
+        cad = montar_cad();//chamada da função que coleta os dados
         system("clear");
         arq = fopen("cad1.txt", "a");
         //com a flag A toda nova inclusão será ao final do arquivo
         fprintf(arq, "\nNome: ");
-        fputs(c->name, arq);
+        fputs(cad->name, arq);
         fprintf(arq, "Endereço: ");
-        fputs(c->address, arq);
-        fprintf(arq, "Idade: ");
-        fputs(c->phone, arq);
+        fputs(cad->address, arq);
+        fprintf(arq, "Telefone: ");
+        fputs(cad->phone, arq);
         fclose(arq);
 
       case 3:
