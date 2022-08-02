@@ -11,6 +11,8 @@ char name[TAM_S];
 char address[TAM_S];
 char phone[TAM_S];
 }c;
+//variável para o arquivo que será utilizado
+FILE *arq;
 //função para criar um vetor que receberá os dados da struct
 struct cadastro* montar_cad(){
  
@@ -38,8 +40,7 @@ struct cadastro* montar_cad(){
 int main(){
   //cria a variável da estrutura
   struct cadastro *c;
-  //variável para o arquivo que será utilizado
-  FILE *arq;
+  //variável para as opções
   int opcao;
   
   do{
